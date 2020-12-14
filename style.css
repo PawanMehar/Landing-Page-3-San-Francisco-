@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+}
+html{
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar{
+    positio: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    padding: o 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo a{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    text-decoration: none;
+    outline: 2px solid #eee;
+    padding: 1rem 2rem;
+    color: #eee;
+    letter-spacing: .5rem;
+    text-transform: uppercase;
+    position: absolute;
+    left: 2rem;
+}
+
+.menu{
+   /* background-color: #eee;*/
+    width: 4rem;
+    height: 4rem;
+    border-radius: .4rem;
+    box-shadow: .5rem .5rem 1rem #cacaca,
+                -.5rem -.5rem 1rem #fff;
+    display: flex;            
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    position: absolute;
+    right: 5rem;
+}
+
+.menu:hover{
+    box-shadow: inset .5rem .5rem 1rem #cacaca,
+                inset -.5rem -.5rem 1rem #fff;
+}
+
+.bar{
+    display: inline-block;
+    content: '';
+    width: 2.4rem;
+    background-color: #333;
+    height: 2px;
+    position: relative;
+    transition: background-color .5s;
+}
+.bar::before,
+.bar::after{
+    width: inherit;
+    height: inherit;
+    content: '';
+    position: absolute;
+    background-color: #333;
+    transition: all .5s;
+}
+
+.bar::before{
+    top: -.8rem;
+}
+.bar::after{
+    top: .8rem;
+}
+
+.open .bar{
+    background-color: transparent;
+}
+
+.open .bar::before{
+    top: 0;
+    transform: rotate(135deg);
+}
+.open .bar::after{
+    top: 0;
+    transform: rotate(-135deg);
+}
+
+ul {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30rem;
+    height: 100vh;
+    display: flex;
+    justify-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #e5e5e5;
+    box-shadow: -.5rem 0 1px rgba(0,0,0,.1);
+    text-align: center;
+    z-index: 2;
+    transform: translateX(55rem);
+    transition: .7s;
+    list-style: none;
+
+
+}
+
+.open ul{
+    transform: translateX(0);
+}
+
+ul li a {
+    color:#000;
+    text-decoration: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid crimson;
+    padding: .5rem 0;
+    font-weight: 500;
+    
+}
+
+.hero{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url(img.jpg) center center/cover;
+    position: relative;
+}
+.hero-clipped{
+    position: absolute;
+    width: 60%;
+    height: 100vh;
+    background-color: #eee;
+    top: 0;
+    right: 0;
+    clip-path: polygon(20% 0,100% 0,100% 100%,0 100%);
+   transform-origin: right;
+}
+.hero-text{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Lato", sans-serif;
+    padding: 1rem;
+    color: #333;
+
+}
+
+.hero-text h1{
+    font-size: 5rem;
+    letter-spacing: 1rem;
+    font-weight: 900;
+}
+
+.hero-text h2{
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: .5rem;
+}
+
+.hero-text button{
+    margin-top: 5rem;
+    background: crimson;
+    outline: none;
+    font-weight: 500;
+    font-size: 1.4rem;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    position: relative;
+    border: none;
+    color: #eee;
+}
+
+.hero-text button::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: inherit;
+    z-index: -1;
+}
+
+.hero-text button:hover::after{
+    transform: scaleX(1.2) scaleY(1.5);
+    opacity: 0;
+    transition: all .5s;
+
+}
+
+@media screen and (max-width:700px){
+    .hero-clipped{
+        width: 100%;
+        height: 75vh;
+        clip-path: polygon(0 0,100% 0,100% 100%,0 65%);
+    }
+    .menu{
+        position: absolute;
+        right: 2rem;
+    }
+
+    .logo a{
+        color: #333;
+        outline:2px solid #333;
+        font-size: 1.4rem;
+        padding: .8rem 1.5rem;
+    }
+
+    ul{
+        width: 30rem;
+    }
+
+    .hero-text h1{
+        font-size: 4rem;
+    }
+
+    .hero-text h2{
+        font-size: 1.2rem;
+    }
+
+    .hero-text button{
+        padding: 1rem 2.5rem;
+    }
+
+}
+@media screen and (max-width:500px){
+   
+
+    .logo a{
+        color: #333;
+        outline:2px solid #333;
+        font-size: 1.4rem;
+        padding: .8rem 1rem;
+    }
+    
+
+    ul{
+        width: 25rem;
+    }
+
+    .hero-text h1{
+        font-size: 2.5rem;
+    }
+
+    .hero-text h2{
+        font-size: 1rem;
+    }
+
+    .hero-text button{
+        padding: 1rem 2rem;
+        margin-top: 2rem;
+    }
+
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>san francisco</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#">San francisco</a>
+            </div>
+            <div class="menu">
+                <span class="bar"></span>
+            </div>
+            <ul>
+                <li><a href="#">about</a></li>
+                <li><a href="#">places</a></li>
+                <li><a href="#">pricing</a></li>
+                <li><a href="#">tourist guide</a></li>
+                <li><a href="#">contacts</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-clipped">
+            <div class="hero-text">
+                <h1>San francisco</h1>
+                <h2>Lorem ipsum dolor sit amet consectetur<br>, adipisicing elit. Quis, odit.</h2>
+                <button>Learn More</button>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script >
+        const navbar = document .querySelector('.navbar');
+        const menu = document.querySelector('.menu');
+        
+        menu.addEventListener('click', function(){
+            navbar.classList.toggle('open');
+        });
+        gsap.fromTo(".hero-clipped",{scaleX:0},{duration:1,scaleX:1});
+        gsap.fromTo(".logo a",{x:-200,opacity:0},{duration:1,delay:.5,x:0,opacity:1});
+        gsap.fromTo(".menu",{x:200,opacity:0},{duration:1,delay:.8,x:0,opacity:1});
+        gsap.fromTo(".hero-text",{y:100,opacity:0},{duration:1,delay:1.3,y:0,opacity:1});
+    </script>
+</body>
+</html>
